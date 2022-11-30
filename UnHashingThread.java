@@ -40,9 +40,6 @@ public class UnHashingThread extends Thread {
             else {
                 Pirate.uncrackedHashes.add(to_unhash);
             }
-            // System.out.println(new UnHash().unhash(to_unhash, timeout));
-            
-
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
 

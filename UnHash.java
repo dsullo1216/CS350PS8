@@ -41,14 +41,12 @@ public class UnHash {
                     continue;
                 }
                 for (int k = crackedHashes.get(i) + 1; k < crackedHashes.get(j); k++) {
-
                     String hint = String.valueOf(crackedHashes.get(i)) + ";" + String.valueOf(k) + ";" + String.valueOf(crackedHashes.get(j));
                     if (hash.hash(hint).equals(to_unhash)) {
                         crackedHashes.set(i, -1);
                         crackedHashes.set(j, -1);
                         return hint;
                     }
-
                 }
             }
         }

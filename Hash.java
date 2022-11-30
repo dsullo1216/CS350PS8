@@ -17,8 +17,4 @@ public class Hash {
         return hashtext;
     }
 
-    // public static void main(String[] args) throws NoSuchAlgorithmException {
-    //     System.out.println(hash(12345));
-    // }
-
 }
