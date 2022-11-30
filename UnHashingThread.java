@@ -30,15 +30,15 @@ public class UnHashingThread extends Thread {
             if (!result.equals("-1")) {
                 if (result.contains(";")) {
                     System.out.println(result);
-                    Dispatcher.crackedCompoundHashes.add(result);
+                    Pirate.crackedCompoundHashes.add(result);
                 }
                 else {
                     System.out.println(result);
-                    Dispatcher.crackedHashes.add(Integer.parseInt(result));
+                    Pirate.crackedHashes.add(Integer.parseInt(result));
                 }
             }
             else {
-                Dispatcher.uncrackedHashes.add(to_unhash);
+                Pirate.uncrackedHashes.add(to_unhash);
             }
             // System.out.println(new UnHash().unhash(to_unhash, timeout));
             

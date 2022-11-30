@@ -9,15 +9,22 @@ public class Pirate {
     private int num_threads;
     private int timeout;
 
-    private List<String> uncrackedHashes;
-    private List<Integer> crackedHashes;
+    // private List<String> uncrackedHashes;
+    // private List<Integer> crackedHashes;
+
+    public static List<String> uncrackedHashes;
+    public static List<Integer> crackedHashes;
+    public static List<String> crackedCompoundHashes;
 
     public Pirate(String path_to_file, int n, int timeout) {
         file_path = path_to_file;
         num_threads = n;
         this.timeout = timeout;
-        uncrackedHashes = new ArrayList<String>();
-        crackedHashes = new ArrayList<Integer>();
+        // uncrackedHashes = new ArrayList<String>();
+        // crackedHashes = new ArrayList<Integer>();
+        uncrackedHashes = Collections.synchronizedList(new ArrayList<String>());
+        crackedHashes = Collections.synchronizedList(new ArrayList<Integer>());
+        crackedCompoundHashes = Collections.synchronizedList(new ArrayList<String>());
         
     }
 
@@ -28,8 +35,8 @@ public class Pirate {
         
         dispatcher.dispatch();
 
-        uncrackedHashes.addAll(Dispatcher.uncrackedHashes);
-        crackedHashes.addAll(Dispatcher.crackedHashes);
+        // uncrackedHashes.addAll(Dispatcher.uncrackedHashes);
+        // crackedHashes.addAll(Dispatcher.crackedHashes);
         
         Collections.sort(crackedHashes);
         crackedHashes = Collections.synchronizedList(crackedHashes);
@@ -58,7 +65,8 @@ public class Pirate {
         int num_threads = 4;
         int timeout = 2000;
         Pirate pirate = new Pirate(file_path, num_threads, timeout);
-        ArrayList<String> result = pirate.findTreasure();
+        pirate.findTreasure();
+        // ArrayList<String> result = pirate.findTreasure();
 
         // for (int i = 0; i < result.size(); i++) {
         //     System.out.println(result.get(i));

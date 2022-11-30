@@ -14,18 +14,18 @@ public class Dispatcher {
     private int num_threads;
     private int timeout;
     private LinkedBlockingDeque<String> queue;
-    public static List<String> uncrackedHashes;
-    public static List<Integer> crackedHashes;
-    public static List<String> crackedCompoundHashes;
+    // public static List<String> uncrackedHashes;
+    // public static List<Integer> crackedHashes;
+    // public static List<String> crackedCompoundHashes;
 
     public Dispatcher(String path_to_file, int n, int timeout) throws FileNotFoundException {
         file_path = path_to_file;
         num_threads = n;
         this.timeout = timeout;
         queue = new LinkedBlockingDeque<String>();
-        uncrackedHashes = Collections.synchronizedList(new ArrayList<String>());
-        crackedHashes = Collections.synchronizedList(new ArrayList<Integer>());
-        crackedCompoundHashes = Collections.synchronizedList(new ArrayList<String>());
+        // uncrackedHashes = Collections.synchronizedList(new ArrayList<String>());
+        // crackedHashes = Collections.synchronizedList(new ArrayList<Integer>());
+        // crackedCompoundHashes = Collections.synchronizedList(new ArrayList<String>());
         fillQueue();
     }
 
@@ -33,9 +33,9 @@ public class Dispatcher {
         num_threads = n;
         this.timeout = timeout;
         queue = new LinkedBlockingDeque<String>();
-        uncrackedHashes = Collections.synchronizedList(new ArrayList<String>());
-        crackedHashes = Collections.synchronizedList(new ArrayList<Integer>());
-        crackedCompoundHashes = Collections.synchronizedList(new ArrayList<String>());
+        // uncrackedHashes = Collections.synchronizedList(new ArrayList<String>());
+        // crackedHashes = Collections.synchronizedList(new ArrayList<Integer>());
+        // crackedCompoundHashes = Collections.synchronizedList(new ArrayList<String>());
         queue.addAll(hashes);
     }
 
