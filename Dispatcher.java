@@ -1,6 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -49,7 +52,7 @@ public class Dispatcher {
         ExecutorService executor = Executors.newFixedThreadPool(num_threads);
 
         while (!queue.isEmpty()) {
-            executor.execute(new UnHashingThread(queue.remove(), timeout, uncrackedHashes));
+            executor.execute(new UnHashingThread(queue.remove(), timeout));
         }
 
         executor.shutdown();
@@ -64,7 +67,7 @@ public class Dispatcher {
         ExecutorService executor = Executors.newFixedThreadPool(num_threads);
 
         while (!queue.isEmpty()) {
-            executor.execute(new UnHashingThread(queue.remove(), timeout, uncrackedHashes, crackedHashes));
+            executor.execute(new UnHashingThread(queue.remove(), timeout, crackedHashes));
         }
 
         executor.shutdown();

@@ -6,25 +6,19 @@ public class UnHashingThread extends Thread {
 
     private String to_unhash;
     private int timeout;
-    private List<String> uncrackedHashes;
     private List<Integer> crackedHashes;
-    private List<String> crackedCompoundHashes;
 
 
-    public UnHashingThread(String to_unhash, int timeout, List<String> results) {
+    public UnHashingThread(String to_unhash, int timeout) {
         this.to_unhash = to_unhash;
         this.timeout = timeout;
-        this.uncrackedHashes = results;
         this.crackedHashes = new ArrayList<Integer>();
-        this.crackedCompoundHashes = new ArrayList<String>();
     }
 
-    public UnHashingThread(String to_unhash, int timeout, List<String> results, List<Integer> crackedHashes) {
+    public UnHashingThread(String to_unhash, int timeout, List<Integer> crackedHashes) {
         this.to_unhash = to_unhash;
         this.timeout = timeout;
-        this.uncrackedHashes = results;
         this.crackedHashes = crackedHashes;
-        this.crackedCompoundHashes = new ArrayList<String>();
     }
 
     @Override

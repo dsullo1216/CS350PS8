@@ -51,12 +51,12 @@ public class Pirate {
     }
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-        String file_path = args[0];
-        int num_threads = Integer.parseInt(args[1]);
-        int timeout = Integer.parseInt(args[2]);
-        // String file_path = "hashes.txt";
-        // int num_threads = 4;
-        // int timeout = 2000;
+        // String file_path = args[0];
+        // int num_threads = Integer.parseInt(args[1]);
+        // int timeout = Integer.parseInt(args[2]);
+        String file_path = "hashes.txt";
+        int num_threads = 4;
+        int timeout = 2000;
         Pirate pirate = new Pirate(file_path, num_threads, timeout);
         ArrayList<String> result = pirate.findTreasure();
 
